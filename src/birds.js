@@ -9,11 +9,12 @@ class Birds {
     }
 
     init() {
-        const birdGeometry = new THREE.ConeGeometry(0.1, 0.5, 4);
+        const birdGeometry = new THREE.ConeGeometry(0.5, 2, 8); // Increased size
         birdGeometry.computeVertexNormals();
-        const birdMaterial = new THREE.MeshBasicMaterial({ 
-            color: 0x4682b4,
-            fog: false  // Desactivar la niebla para los pájaros
+        const birdMaterial = new THREE.MeshBasicMaterial({
+            color: 0x000000, // Black for contrast
+            side: THREE.DoubleSide,
+            fog: false
         });
 
         for (let i = 0; i < this.count; i++) {

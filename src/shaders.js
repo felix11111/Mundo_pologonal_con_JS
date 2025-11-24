@@ -27,9 +27,13 @@ const Shaders = {
         void main() {
             vec3 light = normalize(vec3(0.5, 1.0, 0.8));
             float dProd = max(0.0, dot(vNormal, light));
+            
+            // Add ambient light component
+            float ambient = 0.3;
+            float lightIntensity = ambient + (1.0 - ambient) * dProd;
 
             vec3 baseColor = useTexture ? texture2D(map, vUv).rgb : color;
-            vec3 finalColor = baseColor * (0.5 + 0.5 * dProd);
+            vec3 finalColor = baseColor * lightIntensity;
 
             // Aplicar niebla
             float depth = length(vPosition);
