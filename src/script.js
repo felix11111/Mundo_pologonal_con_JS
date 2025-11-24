@@ -387,21 +387,6 @@ const Game = {
                 this.sun.material.uniforms.time.value = elapsedTime;
             }
 
-            // Actualizar la posición de la luz del sol
-            if (this.sunLight && this.sun) {
-                this.sunLight.position.copy(this.sun.position);
-            }
-
-            // Actualizar la posición del cielo
-            if (this.sky) {
-                this.sky.position.copy(this.camera.position);
-            },
-
-            // Asegurarse de que el cielo esté renderizado correctamente
-            if (this.sky) {
-                this.sky.material.depthWrite = false;
-                this.sky.renderOrder = -1;  // Asegura que el cielo se renderice primero
-            }
 
             this.renderer.render(this.scene, this.camera);
 
